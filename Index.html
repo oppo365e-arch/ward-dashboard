@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICU Bed Management Dashboard</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+margin:20px;
+background:#f4f6f9;
+}
+
+h1{
+text-align:center;
+color:#003366;
+}
+
+h2{
+background:#003366;
+color:white;
+padding:10px;
+border-radius:5px;
+}
+
+.section{
+background:white;
+padding:15px;
+margin-bottom:20px;
+border-radius:8px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.dashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:10px;
+margin-bottom:20px;
+}
+
+.card{
+background:white;
+padding:15px;
+border-radius:8px;
+text-align:center;
+font-weight:bold;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+input,select,textarea{
+width:100%;
+padding:8px;
+margin-top:5px;
+margin-bottom:10px;
+box-sizing:border-box;
+}
+
+button{
+background:#0066cc;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+table th{
+background:#003366;
+color:white;
+padding:8px;
+border:1px solid #ddd;
+}
+
+table td{
+padding:8px;
+border:1px solid #ddd;
+}
+</style>
+
+</head>
+<body>
+
+<h1>🏥 ICU BED MANAGEMENT DASHBOARD</h1>
+
+<div class="dashboard">
+
+<div class="card">
+จำนวนเตียง ICU<br><br>
+12
+</div>
+
+<div class="card">
+จำนวนเตียง NON-OR<br><br>
+6
+</div>
+
+<div class="card">
+จำนวนเตียง OR<br><br>
+6
+</div>
+
+<div class="card">
+จำนวนเตียงว่าง<br><br>
+0
+</div>
+
+<div class="card">
+จำนวนเคสรอเข้า ICU<br><br>
+0
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>ลงทะเบียนจองเตียง ICU</h2>
+
+<form>
+
+เลขที่ลงทะเบียน
+<input type="text">
+
+AN
+<input type="text">
+
+HN
+<input type="text">
+
+ชื่อ-สกุล
+<input type="text">
+
+อายุ
+<input type="number">
+
+วันที่จอง
+<input type="date">
+
+Admit วันที่
+<input type="date">
+
+Ward
+<input type="text">
+
+แผนก
+<input type="text">
+
+แพทย์เจ้าของไข้
+<input type="text">
+
+Diagnosis ของแพทย์
+<input type="text">
+
+สถานะ
+
+<select>
+<option>รอเตียง</option>
+<option>จองแล้ว</option>
+<option>Admit ICU</option>
+<option>จำหน่าย</option>
+</select>
+
+<button type="submit">
+บันทึกข้อมูล
+</button>
+
+</form>
+
+</div>
+
+<div class="section">
+
+<h2>รายการคิวรอเข้า ICU</h2>
+
+<table>
+
+<tr>
+<th>เลขทะเบียน</th>
+<th>AN</th>
+<th>HN</th>
+<th>ชื่อ-สกุล</th>
+<th>อายุ</th>
+<th>วันที่จอง</th>
+<th>Ward</th>
+<th>แผนก</th>
+<th>แพทย์</th>
+<th>Diagnosis</th>
+<th>สถานะ</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>001</td>
+<td>123456</td>
+<td>654321</td>
+<td>ตัวอย่าง</td>
+<td>65</td>
+<td>01/07/2025</td>
+<td>MED</td>
+<td>อายุรกรรม</td>
+<td>นพ.ตัวอย่าง</td>
+<td>Septic Shock</td>
+<td>รอเตียง</td>
+<td>View</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="section">
+
+<h2>รายละเอียดผู้ป่วย</h2>
+
+<p>AN : ................................</p>
+
+<p>HN : ................................</p>
+
+<p>ชื่อ-สกุล : ................................</p>
+
+<p>Admit วันที่ : ................................</p>
+
+<p>Diagnosis : ................................</p>
+
+<p>วันจำหน่าย : ................................</p>
+
+<p>ผลการรักษา : ย้ายวอร์ด / กลับบ้าน / Refer Out / เสียชีวิต</p>
+
+<p>สรุปการรักษา :</p>
+
+<textarea rows="5"></textarea>
+
+</div>
+
+<div class="section">
+
+<h2>สรุปยอดประจำวัน</h2>
+
+<p>Admit วันนี้ : 0</p>
+
+<p>Discharge วันนี้ : 0</p>
+
+<p>ย้ายวอร์ดวันนี้ : 0</p>
+
+<p>เสียชีวิตวันนี้ : 0</p>
+
+</div>
+
+<div class="section">
+
+<h2>สรุปยอดสะสม</h2>
+
+<p>จำนวน Admit ICU ทั้งหมด : 0</p>
+
+<p>จำนวนจำหน่ายทั้งหมด : 0</p>
+
+<p>จำนวนย้ายวอร์ดทั้งหมด : 0</p>
+
+<p>จำนวนกลับบ้านทั้งหมด : 0</p>
+
+<p>จำนวน Refer Out ทั้งหมด : 0</p>
+
+<p>จำนวนเสียชีวิตทั้งหมด : 0</p>
+
+<p>จำนวนผู้ป่วยรอเตียงปัจจุบัน : 0</p>
+
+<p>อัตราครองเตียง ICU : 0%</p>
+
+<p>Average Length of Stay (LOS) : 0 วัน</p>
+
+</div>
+
+</body>
+</html>
